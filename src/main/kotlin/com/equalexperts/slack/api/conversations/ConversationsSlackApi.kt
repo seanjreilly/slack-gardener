@@ -80,7 +80,7 @@ fun ConversationsSlackApi.getFullConversationHistory(conversationId: String): Li
 }
 
 interface ConversationsSlackApi {
-    @RequestLine("GET /api/conversations.list?exclude_archived=true&exclude_members=true&cursor={cursorValue}")
+    @RequestLine("GET /api/conversations.list?types=public_channel,private_channel&exclude_archived=true&exclude_members=true&cursor={cursorValue}")
     fun list(@Param("cursorValue") cursorValue: String = ""): ConversationList
 
     @RequestLine("GET /api/conversations.members?channel={channel}&limit=1000&cursor={cursorValue}")
