@@ -9,7 +9,7 @@ import feign.RequestLine
 import java.net.URI
 
 interface ChatSlackApi {
-
+    // The Slack API is inconsistent since it continues to use 'channel' as a query param instead of using conversation
     @RequestLine("GET /api/chat.postMessage?channel={channel}&username={user}&text={text}")
     fun postMessage(
             @Param("channel", expander = Conversation.ChannelIdExpander::class) channel: Conversation,
